@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Lab3_Interfaces_and_abstract_classes.Abstract_classes
 {
+    /// <summary>
+    /// Provides an abstract class with which to build animal classes off of
+    /// </summary>
     internal abstract class Animal
     {
         public string Name { get; private set; }
@@ -26,6 +29,9 @@ namespace Lab3_Interfaces_and_abstract_classes.Abstract_classes
             Age = age;
         }
 
+        /// <summary>
+        /// Prints what the animal eats.
+        /// </summary>
         public abstract void Eat();
     }
 }

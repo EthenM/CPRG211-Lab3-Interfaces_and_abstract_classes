@@ -8,11 +8,17 @@ namespace Lab3_Interfaces_and_abstract_classes
 {
     //Documentation xml tags found here: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/documentation-comments
 
+    /// <summary>
+    /// Defines the various classes that can be created. Currently there are only <c>Cat</c> and <c>Dog</c> classes needed.
+    /// </summary>
     public enum Pets { Cat, Dog }
 
     internal class Program
     {
-        //don't declare the namespace, that way the program and the developer will know which part of the project is with which type
+        /* I am not declaring the namespaces for the other classes, to ensure that
+         * they are kept separate, and the program can tell which namespace I am
+         * pulling the class from throughout the program
+         */
         public static void Main(string[] args)
         {
             //send it off, so I can use non static methods
@@ -21,6 +27,11 @@ namespace Lab3_Interfaces_and_abstract_classes
         }
     }
 
+    /// <summary>
+    /// Provides a class to run the program without the use of static methods.
+    /// <para>This allows the program to be separated between different methods,
+    /// while keeping proper encapsulation.</para>
+    /// </summary>
     public class ProgramEntry
     {
         /// <summary>
@@ -49,13 +60,16 @@ namespace Lab3_Interfaces_and_abstract_classes
         /// <para>TASKS:</para>
         /// <list type="number">
         ///     <item>
-        ///         <description>Creates an <see cref="Abstract_classes.Dog"/> object</description>
+        ///         <description>Creates an <see cref="Abstract_classes.Dog"/> object.</description>
         ///     </item>
         ///     <item>
-        ///         <description>Lists its properties</description>
+        ///         <description>Lists the object's properties.</description>
         ///     </item>
         ///     <item>
-        ///         <description>Repeats the above steps for an <see cref="Abstract_classes.Cat"/> object</description>
+        ///         <description>Calls the object's <c>Eat()</c> method.</description>
+        ///     </item>
+        ///     <item>
+        ///         <description>Repeats the above steps for an <see cref="Abstract_classes.Cat"/> object.</description>
         ///     </item>
         /// </list>
         /// </summary>
@@ -87,6 +101,22 @@ namespace Lab3_Interfaces_and_abstract_classes
             cat.Eat();
         }
 
+        /// <summary>
+        /// instantiates either a new <see cref="Abstract_classes.Cat"/> or <see cref="Abstract_classes.Dog"/> object
+        /// Depending on the pet provided.
+        /// 
+        /// <para>TASKS:</para>
+        /// <list type="number">
+        ///     <item>
+        ///         <description>Asks for the name of the pet.</description>
+        ///     </item>
+        ///     <item>
+        ///         <description>Instantiates a new object based on the <paramref name="pet"/> type provided.</description>
+        ///     </item>
+        /// </list>
+        /// </summary>
+        /// <param name="pet">The type of pet to instantiate.</param>
+        /// <returns>An <see cref="Abstract_classes.Animal"/> reference to the object of the created pet.</returns>
         private Abstract_classes.Animal? GetAnimalAbstract(Pets pet)
         {
             //first thing to do is request a name from the user
@@ -110,6 +140,28 @@ namespace Lab3_Interfaces_and_abstract_classes
             return animal;
         }
 
+        /// <summary>
+        /// Main controller for the interface part of the program
+        /// 
+        /// <para>TASKS:</para>
+        /// <list type="number">
+        ///     <item>
+        ///         <description>Creates an <see cref="Interfaces.Dog"/> object.</description>
+        ///     </item>
+        ///     <item>
+        ///         <description>Lists the object's properties.</description>
+        ///     </item>
+        ///     <item>
+        ///         <description>Calls the object's <c>Eat()</c> method.</description>
+        ///     </item>
+        ///     <item>
+        ///         <description>Calls the object's <c>Cry()</c> method.</description>
+        ///     </item>
+        ///     <item>
+        ///         <description>Repeats the above steps for an <see cref="Interfaces.Cat"/> object.</description>
+        ///     </item>
+        /// </list>
+        /// </summary>
         private void RunInterface()
         {
             Console.WriteLine("\n---------- DOG RUN ----------\n");
@@ -140,6 +192,22 @@ namespace Lab3_Interfaces_and_abstract_classes
             cat.Cry();
         }
 
+        /// <summary>
+        /// instantiates either a new <see cref="Interfaces.Cat"/> or <see cref="Interfaces.Dog"/> object
+        /// Depending on the pet provided.
+        /// 
+        /// <para>TASKS:</para>
+        /// <list type="number">
+        ///     <item>
+        ///         <description>Asks for the name, colour, height and age of the pet.</description>
+        ///     </item>
+        ///     <item>
+        ///         <description>Instantiates a new object based on the <paramref name="pet"/> type provided.</description>
+        ///     </item>
+        /// </list>
+        /// </summary>
+        /// <param name="pet">The type of pet to instantiate.</param>
+        /// <returns>An <see cref="Interfaces.Animal"/> reference to the object of the created pet.</returns>
         private Interfaces.IAnimal? GetAnimalInterface(Pets pet)
         {
             Console.Write($"Please enter a {pet} name: ");
@@ -170,6 +238,10 @@ namespace Lab3_Interfaces_and_abstract_classes
             return animal;
         }
 
+        /// <summary>
+        /// Gets the user input, and ensures that the value is not null.
+        /// </summary>
+        /// <returns>The user inputted string. This will not be null.</returns>
         private string GetUserInput()
         {
             string? userInput = Console.ReadLine();
@@ -178,6 +250,12 @@ namespace Lab3_Interfaces_and_abstract_classes
             return userInput;
         }
 
+        /// <summary>
+        /// Gets the user input
+        /// </summary>
+        /// <param name="isDouble">Determines if the method will return a double or a string.
+        /// Defaults to string.</param>
+        /// <returns>The user input in the form of a double, or 0, if input was invalid.</returns>
         private double GetUserInput(bool isDouble)
         {
             string? userInputString = Console.ReadLine();
@@ -187,6 +265,23 @@ namespace Lab3_Interfaces_and_abstract_classes
             return parseOutput;
         }
 
+        /// <summary>
+        /// Adds a number of <see cref="Interfaces.IAnimal"/> references to a list and prints out
+        /// the names and class type of each.
+        /// 
+        /// <para>TASKS:</para>
+        /// <list type="number">
+        ///     <item>
+        ///         <description>
+        ///             Creates a new list, and adds a number of <see cref="Interfaces.IAnimal"/> references,
+        ///             Which could either be <see cref="Interfaces.Cat"/> or <see cref="Interfaces.Dog"/> objects
+        ///         </description>
+        ///     </item>
+        ///     <item>
+        ///         <description>Loops through the list and prints out the name and type of each object.</description>
+        ///     </item>
+        /// </list>
+        /// </summary>
         private void PrintNamesInList()
         {
             //Filling a new list with some data

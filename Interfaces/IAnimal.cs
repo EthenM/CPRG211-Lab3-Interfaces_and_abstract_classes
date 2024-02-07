@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Lab3_Interfaces_and_abstract_classes.Interfaces
 {
+    /// <summary>
+    /// The structure for building animal classes off of.
+    /// </summary>
     internal interface IAnimal
     {
 
@@ -15,8 +18,15 @@ namespace Lab3_Interfaces_and_abstract_classes.Interfaces
         double Height { get; }
         int Age { get; }
 
-        abstract void Eat();
+        /// <summary>
+        /// Prints what the animal eats.
+        /// </summary>
+        void Eat();
 
-        abstract string Cry();
+        /// <summary>
+        /// Gives the cry of the animal.
+        /// </summary>
+        /// <returns>A string representation of the animal's cry.</returns>
+        string Cry();
     }
 }

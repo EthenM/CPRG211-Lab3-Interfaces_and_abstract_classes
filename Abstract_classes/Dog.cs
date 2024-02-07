@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Lab3_Interfaces_and_abstract_classes.Abstract_classes
 {
+    /// <summary>
+    /// A class to build a Dog object from the <see cref="Animal"/> abstract class.
+    /// </summary>
     internal class Dog : Animal
     {
         public Dog()

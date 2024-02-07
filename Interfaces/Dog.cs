@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Lab3_Interfaces_and_abstract_classes.Interfaces
 {
+    /// <summary>
+    /// A class to build a Dog object from the <see cref="IAnimal"/> interface.
+    /// </summary>
     internal class Dog : IAnimal
     {
         public string Name { get; private set; }
