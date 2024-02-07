@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace Lab3_Interfaces_and_abstract_classes
 {
+    //Documentation xml tags found here: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/documentation-comments
+
     public enum Pets { Cat, Dog }
 
     internal class Program
